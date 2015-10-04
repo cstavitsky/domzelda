@@ -34,14 +34,38 @@ if (!document.getElementById("zelda_chrome_character")){
 // 	$(element).css("margin-top","+=10")
 // }
 
+
+function checkCollision(element) {
+	var positionTop = parseInt($(element).css("top").slice(0,-2));
+	var positionLeft = parseInt($(element).css("left").slice(0,-2));
+	$('a').each(function(){ 
+		var pTop = $(this).offset().top
+		var pTopLowerBound = pTop - 20;
+		var pTopUpperBound = pTop + 20;
+		var pLeft = $(this).offset().left;
+		var pLeftLowerBound = pLeft - 20;
+		var pLeftUpperBound = pLeft + 20;
+		if (positionTop > pTopLowerBound && positionTop < pTopUpperBound && positionLeft > pLeftLowerBound && positionLeft < pLeftUpperBound) {
+			$(this).css("background-color", "blue");
+		}
+	});	
+	// $("p").each(function(){
+	// 	console.log(this.style)
+	// 	// if (parseInt(pPosition).between((positionTop-20),positionTop) || parseInt(this.css("top").slice(0,-2)).between(positionTop,(positionTop+20))) {
+	// 	// 	$("body").css("background-color", blue);
+	// 	// }
+	// });
+}
+
 var up = 1;
 var down = 1;
 var left = 1;
 var right = 1;
 
 $(document).keydown(function(event) {
+checkCollision("#zelda_chrome_character");
 	var key = event.which;
-	var offset = 5;
+	var offset = 10;
 	var pos = $("#zelda_chrome_character").position();
 	if (key==37) {
 		event.preventDefault();
