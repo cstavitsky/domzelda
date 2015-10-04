@@ -18,21 +18,21 @@ if (!document.getElementById("zelda_chrome_character")){
 }
 
 
-function moveLeft(element) {
-	$(element).css("margin-left","-=10")
-}
+// function moveLeft(element) {
+// 	$(element).css("margin-left","-=10")
+// }
 
-function moveRight(element) {
-	$(element).css("margin-left","+=10")
-}
+// function moveRight(element) {
+// 	$(element).css("margin-left","+=10")
+// }
 
-function moveUp(element) {
-	$(element).css("margin-top","-=10")
-}
+// function moveUp(element) {
+// 	$(element).css("margin-top","-=10")
+// }
 
-function moveDown(element) {
-	$(element).css("margin-top","+=10")
-}
+// function moveDown(element) {
+// 	$(element).css("margin-top","+=10")
+// }
 
 var up = 1;
 var down = 1;
@@ -41,10 +41,12 @@ var right = 1;
 
 $(document).keydown(function(event) {
 	var key = event.which;
-	var pos = $("#zelda_chrome_character");
+	var offset = 5;
+	var pos = $("#zelda_chrome_character").position();
 	if (key==37) {
 		event.preventDefault();
-		moveLeft("#zelda_chrome_character")
+		// moveLeft("#zelda_chrome_character")
+		$("#zelda_chrome_character").css("left", pos.left - offset)
 		if (left == 1) {
 			$("#zelda_chrome_character").attr("src", "http://i.imgur.com/d6ER0Yt.png");
 			left = 2;
@@ -54,7 +56,8 @@ $(document).keydown(function(event) {
 		}
 	} else if (key==38) {
 		event.preventDefault();
-		moveUp("#zelda_chrome_character")
+		// moveUp("#zelda_chrome_character");
+		$("#zelda_chrome_character").css("top", pos.top - offset)
 		if (up == 1) {
 			$("#zelda_chrome_character").attr("src", "http://i.imgur.com/UiinRFE.png");
 			up = 2;
@@ -64,7 +67,8 @@ $(document).keydown(function(event) {
 		}
 	} else if (key==39) {
 		event.preventDefault();
-		moveRight("#zelda_chrome_character")
+		// moveRight("#zelda_chrome_character");
+		$("#zelda_chrome_character").css("left", pos.left + offset)
 		if (right == 1) {
 			$("#zelda_chrome_character").attr("src", "http://i.imgur.com/EC9DpSy.png");
 			right = 2;
@@ -74,7 +78,8 @@ $(document).keydown(function(event) {
 		}
 	} else if (key==40) {
 		event.preventDefault();
-		moveDown("#zelda_chrome_character")
+		// moveDown("#zelda_chrome_character")
+		$("#zelda_chrome_character").css("top", pos.top + offset)
 		if (down == 1) {
 			$("#zelda_chrome_character").attr("src", "http://i.imgur.com/aRw0NLJ.png");
 			down = 2;

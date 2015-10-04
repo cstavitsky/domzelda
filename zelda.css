@@ -5,6 +5,6 @@
 
 #zelda_chrome_character{
 	height: 20px;
-	position: fixed;
+	position: absolute;
 	z-index: 9001;
 }
