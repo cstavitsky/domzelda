@@ -36,16 +36,22 @@ if (!document.getElementById("zelda_chrome_character")){
 
 
 function checkCollision(element) {
-	var positionTop = parseInt($(element).css("top").slice(0,-2));
-	var positionLeft = parseInt($(element).css("left").slice(0,-2));
+	// var positionTop = parseInt($(element).css("top").slice(0,-2));
+	// var positionLeft = parseInt($(element).css("left").slice(0,-2));
+	var sprite = $(element)[0].getBoundingClientRect();
 	$('a').each(function(){ 
-		var pTop = $(this).offset().top
-		var pTopLowerBound = pTop - 20;
-		var pTopUpperBound = pTop + 20;
-		var pLeft = $(this).offset().left;
-		var pLeftLowerBound = pLeft - 20;
-		var pLeftUpperBound = pLeft + 20;
-		if (positionTop > pTopLowerBound && positionTop < pTopUpperBound && positionLeft > pLeftLowerBound && positionLeft < pLeftUpperBound) {
+		var rectangle = this.getBoundingClientRect();
+		// var pTop = $(this).offset().top
+		// var pTopLowerBound = pTop - 20;
+		// var pTopUpperBound = pTop + 20;
+		// var pLeft = $(this).offset().left;
+		// var pLeftLowerBound = pLeft - 20;
+		// var pLeftUpperBound = pLeft + 20;
+		// if (positionTop > pTopLowerBound && positionTop < pTopUpperBound && positionLeft > pLeftLowerBound && positionLeft < pLeftUpperBound) {
+		// 	$(this).css("background-color", "blue");
+		// }
+
+		if (sprite.bottom > rectangle.top && sprite.left > rectangle.left && sprite.right < rectangle.right) {
 			$(this).css("background-color", "blue");
 		}
 	});	
