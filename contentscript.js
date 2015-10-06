@@ -51,8 +51,8 @@ function checkCollision(element) {
 		// 	$(this).css("background-color", "blue");
 		// }
 
-		if (sprite.bottom > rectangle.top && sprite.left > rectangle.left && sprite.right < rectangle.right) {
-			$(this).css("background-color", "blue");
+		if (sprite.bottom > rectangle.top && sprite.left > rectangle.left && sprite.right < rectangle.right && sprite.bottom < rectangle.bottom) {
+			$(this).css("background-color", "orange");
 		}
 	});	
 	// $("p").each(function(){
