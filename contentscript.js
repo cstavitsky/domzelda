@@ -36,32 +36,21 @@ if (!document.getElementById("zelda_chrome_character")){
 
 
 function checkCollision(element) {
-	// var positionTop = parseInt($(element).css("top").slice(0,-2));
-	// var positionLeft = parseInt($(element).css("left").slice(0,-2));
 	var sprite = $(element)[0].getBoundingClientRect();
 	$('a').each(function(){ 
 		var rectangle = this.getBoundingClientRect();
-		// var pTop = $(this).offset().top
-		// var pTopLowerBound = pTop - 20;
-		// var pTopUpperBound = pTop + 20;
-		// var pLeft = $(this).offset().left;
-		// var pLeftLowerBound = pLeft - 20;
-		// var pLeftUpperBound = pLeft + 20;
-		// if (positionTop > pTopLowerBound && positionTop < pTopUpperBound && positionLeft > pLeftLowerBound && positionLeft < pLeftUpperBound) {
-		// 	$(this).css("background-color", "blue");
-		// }
-
-		if (sprite.bottom > rectangle.top && sprite.left > rectangle.left && sprite.right < rectangle.right && sprite.bottom < rectangle.bottom) {
-			$(this).css("background-color", "orange");
+		if (sprite.bottom > rectangle.top && sprite.bottom < rectangle.bottom && sprite.left > rectangle.left && sprite.right < rectangle.right) {
+				$(this).css("background-color", "orange");
+				// playSound("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Magic.wav");
 		}
 	});	
-	// $("p").each(function(){
-	// 	console.log(this.style)
-	// 	// if (parseInt(pPosition).between((positionTop-20),positionTop) || parseInt(this.css("top").slice(0,-2)).between(positionTop,(positionTop+20))) {
-	// 	// 	$("body").css("background-color", blue);
-	// 	// }
-	// });
 }
+
+// function playSound(soundfile) {
+// 	var audioElement = document.createElement('audio');
+// 	audioElement.setAttribute('src', soundfile);
+// 	audioElement.play();
+// }
 
 var up = 1;
 var down = 1;
